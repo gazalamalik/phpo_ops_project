@@ -1,0 +1,55 @@
+<?php
+      
+      // if(isset($_POST['submit'])){
+       //  $fullname = $_POST['fname'];
+       //  $gender = $_POST['gender'];
+       //  $age = $_POST['age'];
+       //  $address = $_POST['address'];
+      // $query = "UPDATE users SET full_name = '$fullname',
+                //       gender = '$gender', age = $age, address = '$address'
+                //       WHERE user_id = '$id'";
+                //     $result = mysqli_query($db, $query) or die(mysqli_error($db));
+ ?>
+
+
+
+
+<div class= "container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">Post Dashboard</div>
+                <div class="panel-body">
+                    <a href= "posts.php" class="btn btn-primary"> Create Post</a>
+                    <h3>Yout Blog Post</h3>
+                   <?php  if(count($record) > 0){?> 
+                    <table class ="table table-striped" border="1" width=40% >
+
+                            <tr>   <th>Id</th> 
+                                   <th>Title</th> 
+                                   <th>Short_description</th>
+                                   <th>Long_description</th>
+                                   <th>Action</th>
+                            </tr>
+                                <?php foreach($record as $val){?>
+                                       <tr> 
+                                            <td><?php echo $val['id'];?></td>
+                                             <td><?php echo $val['title'];?></td>
+                                             <td><?php echo $val['sort_desc'];?></td>
+                                             <td><?php echo $val['long_desc'];?></td>
+                                             <td><button><a href="updatePosts.php?id=<?php echo $val['id'];?>"">Edit_Post </a></button><br><br>
+                                             <button> <a href="postsDisplay.php?id=<?php echo $val['id'];?>" class="text-danger" onClick="return confirm('Are you sure to delete this user?');"><i class="fa fa-fw fa-trash"></i> Delete</a></button>
+          
+                                       </tr>
+                               <?php } ?>
+                    </table>
+                    <?php } ?> 
+                                
+                </div>
+            </div>
+                 
+         </div>
+    
+    </div>
+                 
+ </div>
